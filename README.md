@@ -1,2 +1,2 @@
 # new_projects
-I will make some projects.
+This is my first commit.
