@@ -17,10 +17,10 @@ the status of the activation is not saved in NVM memory.
 SYR_BCU19_HT_241: The routine starts from Diagnosis panel with the command : 31 01 0492 and 4 parameters with 3 bytes size.
  In the first byte we have: pulse duration and number of pulses. In the second byte we have max deviation in Volt
  and in the third byte we have specify target value
-When the routine is started the APP should provide to the Diagnosis module the last consumption calculated value. 
+When the routine is started the APP should provide to the Diagnosis module the last calculated consumption value. 
 This value is saved in a messwerte block with ID 08A1.
-If the value calculated is smaller than specify target value the APP  returns to Diagnosis module incorrect result.
-And correct result if the value is greater.
+If the value calculated is lower than specify target value ,the APP  returns to Diagnosis module incorrect result.
+And correct result if the value is higher.
 
 31 02 0492 without any parameters
 31 03 and ID of routine
