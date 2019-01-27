@@ -1,0 +1,26 @@
+Rear Window Heater
+
+
+SYR_BCU19_HT_187 :
+Timeout_Klima--- is provided by Gateway module, but one remark here "The timeout is not made on Klima16,it's made on Klima12 ,
+ because this will be the fastest message in the ECU"
+Voltage_out_of_range--- is a internal interface provided by Voltage Manager module. I think this range is between 8V-16V(need to check tomorrow)?
+HSH_Relais_Anf_can1 this is a CAN signal from Klima16 message and is sent by ICAS ECU.
+o_Heckscheibenheizung_EIN --- this is the output HW , the relay on the car's rear window.
+The pin HW is a low side , means with short circuit to plus we have an OverLoad
+cs_rear_window_heater_is_act --- a internal interface between RWH Application and Power Mode module
+
+SYR_BCU19_HT_187 :
+o_HSH_Status_can is a CAN signal on the BCM05 message, where we save the status for the hzg output HW
+SYR_BCU19_HT_224:
+the status of the activation is not saved in NVM memory.
+SYR_BCU19_HT_241: The routine starts from Diagnosis panel with the command : 31 01 0492 and 4 parameters with 3 bytes size.
+ In the first byte we have: pulse duration and number of pulses. In the second byte we have max deviation in Volt
+ and in the third byte we have specify target value
+When the routine is started the APP should provide to the Diagnosis module the last calculated consumption value. 
+This value is saved in a messwerte block with ID 08A1.
+If the value calculated is lower than specify target value ,the APP  returns to Diagnosis module incorrect result.
+And correct result if the value is higher.
+
+31 02 0492 without any parameters
+31 03 and ID of routine
